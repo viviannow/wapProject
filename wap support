@@ -1,0 +1,54 @@
+1.解决首尾差异：:first-child :last-child :first-of-type :last-of-type
+2.斑马条纹的实现：nth-child(n)
+3.表单支持：type="tel" type="search"
+4.类型选择：input[type="search"]
+5.屏幕自适应：
+
+遗憾：对不支持的粗暴降级
+
+页面加载完后自动隐藏浏览器地址栏：
+
+$(document).ready(function() {
+	setTimeout(scrollTo, 200, 0, 1);
+});
+
+Android：	对锚点支持有限，只能跳转一次
+ios ：		对锚点支持和pc浏览器一致  替代方案：	javascript: scrollTo(0, 1);
+
+
+根据HTML5规范获取用户经纬度信息：
+
+var geol;
+try {
+if (typeof(navigator.geolocation) == 'undefined') {
+	geol = google.gears.factory.create('beta.geolocation');
+    } else {
+   	geol = navigator.geolocation;
+    }
+} catch (error) {
+	//alert(error.message);
+}
+
+手机电话
+1.Web方式
+<a href="tel:4000086666">
+电话预订：4000086666
+</a> 
+2. wap（主要hack QQ和UC浏览器） <a href="wtai://wp/mc;4000086666">
+电话预订：4000086666
+</a> 
+
+4.获取浏览器型号
+1.Java获取 
+String userAgent = request.getHeader("user-agent");
+QQ浏览器：
+Var qq = request.getHeader(“Q-UA”);
+
+2.JavaScript获取  var appV = navigator.appVersion.toLowerCase();
+var userAgentStr = navigator.userAgent;
+
+
+
+$(":input").click(function(event) {
+	event.stopPropagation();//阻止事件冒泡
+});
